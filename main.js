@@ -269,3 +269,53 @@ showData();
 showTotalProfit();
 
 
+
+
+// ==========================
+// الآلة الحاسبة
+// ==========================
+
+let calcNum1 = document.getElementById("calcNum1");
+let calcNum2 = document.getElementById("calcNum2");
+let calcOperation = document.getElementById("calcOperation");
+let calcButton = document.getElementById("calcButton");
+let calcResult = document.getElementById("calcResult");
+
+calcButton.onclick = function () {
+
+    let num1 = Number(calcNum1.value);
+    let num2 = Number(calcNum2.value);
+    let operation = calcOperation.value;
+
+    if (calcNum1.value === "" || calcNum2.value === "") {
+        alert("اكتب الرقمين الأول والثاني");
+        return;
+    }
+
+    let result;
+
+    if (operation === "+") {
+        result = num1 + num2;
+    }
+
+    else if (operation === "-") {
+        result = num1 - num2;
+    }
+
+    else if (operation === "*") {
+        result = num1 * num2;
+    }
+
+    else if (operation === "/") {
+
+        if (num2 === 0) {
+            alert("مينفعش القسمة على صفر");
+            return;
+        }
+
+        result = num1 / num2;
+    }
+
+    calcResult.textContent = "النتيجة: " + result;
+};
+
