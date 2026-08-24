@@ -61,3 +61,59 @@ table{
     font-size: 30px;
 
 }
+#calculator {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+}
+
+#calculator h2 {
+    font-size: 35px;
+}
+
+#calculator input {
+    width: 35%;
+}
+
+#calcOperation {
+    width: 15%;
+    height: 55px;
+    font-size: 30px;
+    border-radius: 7px;
+}
+
+#calcButton {
+    display: block;
+    width: 250px;
+    height: 55px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+#calcResult {
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
