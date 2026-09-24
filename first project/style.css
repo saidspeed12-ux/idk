@@ -32,7 +32,6 @@ h2 {
     color: #444;
 }
 
-/* تنسيق حقول الإدخال الافتراضي */
 input {
     outline: none;
     border: 1px solid #ccc;
@@ -42,11 +41,10 @@ input {
 }
 
 input:focus {
-    transform: scale(1.05);
+    transform: scale(1.02);
     border-color: #007bff;
 }
 
-/* زر إضافة منتج الرئيسي */
 #but {
     background-color: #007bff;
     color: white;
@@ -61,7 +59,6 @@ input:focus {
     background-color: #0056b3;
 }
 
-/* تنسيق الجداول لتكون مرنة وقابلة للتمرير على الأجهزة الصغيرة */
 table, #salesTable {
     text-align: center;
     width: 91%;
@@ -94,11 +91,10 @@ td button {
     font-weight: bold;
 }
 
-td button:nth-of-type(1) { background: #ffc107; color: black; } /* بيع */
-td button:nth-of-type(2) { background: #2196F3; color: white; } /* تعديل */
-td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
+td button:nth-of-type(1) { background: #ffc107; color: black; }
+td button:nth-of-type(2) { background: #2196F3; color: white; }
+td button:nth-of-type(3) { background: #f44336; color: white; }
 
-/* عنوان الأرباح والخسائر */
 #salesSection {
     width: 91%;
     margin: 30px auto;
@@ -111,7 +107,7 @@ td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
     border-radius: 7px;
 }
 
-/* 🧮 تصميم صندوق الآلة الحاسبة الرئيسي */
+/* 🧮 صندوق الآلة الحاسبة الرئيسي */
 #calculator {
     width: 91%;
     background: #1c1c1e;
@@ -119,6 +115,7 @@ td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
     box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
     direction: ltr;
     margin: 40px auto;
+    padding: 20px;
 }
 
 #calculator h2 {
@@ -136,25 +133,23 @@ td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
 
 /* شبكة توزيع الأزرار للحاسبة */
 .calculator-layout {
-    display: flex;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* تقسيم ثابت الأرقام 3 أعمدة والعمليات عمود */
+    gap: 12px;
 }
 
 .numbers-block {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    flex: 3;
 }
 
 .operations-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    flex: 1;
 }
 
-/* أزرار الآلة الحاسبة العامة */
 .calc-btn {
     border: none;
     font-weight: bold;
@@ -179,7 +174,6 @@ td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
     color: #32e52c;
 }
 
-
 /* ==================================================== */
 /* 💻 شاشات الكمبيوتر واللاب توب الكبيرة (أكبر من 1024px) */
 /* ==================================================== */
@@ -201,73 +195,89 @@ td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
     #salesSection { width: 76%; }
     #profitTitle { font-size: 28px; }
     
-    #calculator { max-width: 400px; padding: 25px; }
+    #calculator { max-width: 400px; }
     #calculator h2 { font-size: 26px; }
     #calcExpression { height: 65px; font-size: 30px; padding: 10px; }
-    .calc-btn { height: 65px; font-size: 24px; border-radius: 50%; } /* دائرية تماماً للكمبيوتر */
+    .calc-btn { height: 65px; font-size: 24px; border-radius: 50%; }
     .equal-btn, .delete-btn { border-radius: 15px; }
     #calcResult { font-size: 28px; margin-top: 15px; }
 }
-
 
 /* ==================================================== */
 /* 📑 شاشات التابلت والايباد المتوسطة (من 768px إلى 1024px) */
 /* ==================================================== */
 @media (min-width: 768px) and (max-width: 1024px) {
-    body { font-size: 28px; }
-    h1 { font-size: 44px; }
-    h2 { font-size: 34px; }
+    body { font-size: 26px; }
+    h1 { font-size: 38px; }
+    h2 { font-size: 30px; }
     
-    input { width: 40%; height: 55px; font-size: 24px; margin: 6px; }
+    input { width: 40%; height: 55px; font-size: 22px; margin: 6px; }
     #name { width: 83%; }
     #search { width: 70%; }
     
-    #but { width: 350px; height: 65px; font-size: 26px; }
+    #but { width: 350px; height: 65px; font-size: 24px; }
     
-    table, #salesTable { font-size: 22px; width: 85%; }
+    table, #salesTable { font-size: 20px; width: 85%; }
     th, td { padding: 12px; }
-    td button { font-size: 18px; padding: 10px 20px; min-width: 80px; }
+    td button { font-size: 18px; padding: 10px 18px; min-width: 80px; }
     
     #salesSection { width: 85%; }
-    #profitTitle { font-size: 32px; }
+    #profitTitle { font-size: 30px; }
     
-    #calculator { max-width: 440px; padding: 20px; }
+    #calculator { max-width: 440px; }
     #calculator h2 { font-size: 28px; }
     #calcExpression { height: 75px; font-size: 35px; padding: 12px; }
     .calc-btn { height: 75px; font-size: 28px; border-radius: 20px; }
     #calcResult { font-size: 32px; margin-top: 15px; }
 }
 
-
 /* ==================================================== */
 /* 📱 شاشات الهواتف والموبايل الصغيرة (أقل من 768px) */
 /* ==================================================== */
 @media (max-width: 767px) {
-    body { font-size: 22px; }
-    h1 { font-size: 32px; }
-    h2 { font-size: 26px; }
+    body { font-size: 18px; } /* تصغير الكلام العام في التليفون */
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
     
-    /* جعل الحقول مريحة وتأخذ مساحة الشاشة بالطول */
-    input { width: 90%; height: 60px; font-size: 24px; margin: 10px 0; }
+    input { width: 90%; height: 50px; font-size: 18px; margin: 8px 0; }
     #name { width: 90%; }
     #search { width: 90%; }
     
-    #but { width: 90%; height: 75px; font-size: 26px; margin-top: 15px; }
+    #but { width: 90%; height: 60px; font-size: 20px; margin-top: 10px; }
     
-    /* تفعيل التمرير الأفقي للجداول لو الكلمات ضخمة حتى لا تخرب التصميم */
-    table, #salesTable { font-size: 18px; width: 95%; display: block; overflow-x: auto; white-space: nowrap; }
-    th, td { padding: 12px 10px; }
-    
-    /* أزرار عملاقة جداً ومريحة جداً للمس بالإصبع على شاشة الهاتف */
-    td button { font-size: 20px !important; padding: 14px 22px !important; margin: 4px; min-width: 85px; }
+    /* منع الجداول من تخريب وضغط عناصر الشاشة */
+    table, #salesTable { 
+        font-size: 15px; 
+        width: 95%; 
+        display: block; 
+        overflow-x: auto; 
+        white-space: nowrap; 
+        margin: 15px auto;
+    }
+    th, td { padding: 10px 8px; }
+    td button { font-size: 16px !important; padding: 10px 15px !important; margin: 2px; min-width: 70px; }
     
     #salesSection { width: 95%; }
-    #profitTitle { font-size: 26px; padding: 12px; }
+    #profitTitle { font-size: 22px; padding: 12px; }
     
-    /* حاسبة الموبايل الاحترافية بأزرار مستديرة كبيرة */
-    #calculator { max-width: 100%; width: 95%; padding: 15px; }
-    #calculator h2 { font-size: 26px; }
-    #calcExpression { height: 75px; font-size: 36px; padding: 10px; }
-    .calc-btn { height: 80px; font-size: 30px; border-radius: 18px; } /* زوايا ناعمة ممتازة للمس */
-    #calcResult { font-size: 30px; margin-top: 15px; }
+    /* 🧮 ضبط انضباط الآلة الحاسبة تماماً على الموبايل */
+    #calculator { 
+        max-width: 340px; /* حجم محكم لكي لا تخرج الأزرار عن السيطرة */
+        width: 95%; 
+        padding: 12px; 
+    }
+    #calculator h2 { font-size: 22px; }
+    #calcExpression { height: 60px; font-size: 28px; padding: 8px; margin-bottom: 15px; }
+    
+    .calculator-layout { gap: 8px; }
+    .numbers-block { gap: 8px; }
+    .operations-block { gap: 8px; }
+    
+    /* أزرار متناسقة ولا تفسد المظهر وبحجم ممتاز للمس */
+    .calc-btn { 
+        height: 60px; 
+        font-size: 22px; 
+        border-radius: 12px; 
+    } 
+    #calcResult { font-size: 24px; margin-top: 12px; }
 }
