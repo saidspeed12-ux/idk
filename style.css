@@ -1,11 +1,19 @@
-body {
-    background-image: linear-gradient(cyan , rgb(255, 255, 255));
-    background-repeat: no-repeat;
-    width: 100%;
-    text-align: center;
-    font-size: 35px;
+/* ==================================================== */
+/* 🌐 التنسيقات الأساسية العامة (لكل الأجهزة) */
+/* ==================================================== */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-image: linear-gradient(cyan, rgb(255, 255, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
 }
 
 div {
@@ -14,55 +22,51 @@ div {
     padding: 10px;
 }
 
-#head h1 {
-    font-size: 45px;
+h1 {
+    margin-top: 20px;
+    color: #333;
 }
 
+h2 {
+    margin: 15px 0;
+    color: #444;
+}
+
+/* تنسيق حقول الإدخال الافتراضي */
 input {
-    width: 85%;
-    height: 65px;
     outline: none;
-    border: none;
-    margin: 8px 0;
-    border-radius: 10px;
-    padding: 6px;
-    font-size: 30px;
-    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 8px;
+    transition: transform 0.2s;
 }
 
 input:focus {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    border-color: #007bff;
 }
 
-#name {
-    width: 85%;
-}
-
-/* 📱 زر إضافة منتج عملاق للموبايل */
+/* زر إضافة منتج الرئيسي */
 #but {
-    width: 85%;
-    height: 80px;
-    border: none;
     background-color: #007bff;
     color: white;
+    border: none;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 32px;
-    margin-top: 15px;
     font-weight: bold;
+    transition: background 0.2s;
 }
 
-button:hover {
-    filter: brightness(0.9);
+#but:hover {
+    background-color: #0056b3;
 }
 
-/* تنسيق الجداول لتصبح متجاوبة ومريحة */
+/* تنسيق الجداول لتكون مرنة وقابلة للتمرير على الأجهزة الصغيرة */
 table, #salesTable {
     text-align: center;
-    width: 95%;
+    width: 91%;
     margin: 20px auto;
     border: 5px solid rgb(0, 0, 0);
-    font-size: 24px;
     background: rgb(0, 0, 0);
     color: white;
     border-collapse: collapse;
@@ -71,8 +75,7 @@ table, #salesTable {
 th {
     background: rgb(50, 229, 44);
     color: white;
-    font-size: 26px;
-    padding: 15px 5px;
+    padding: 12px;
 }
 
 #salesTable th {
@@ -80,143 +83,194 @@ th {
 }
 
 td {
-    padding: 15px 5px;
-    border: 1px solid #333;
+    padding: 12px;
+    border: 1px solid #444;
 }
 
-/* 📱 أزرار الجداول عملاقة لسهولة الضغط بالإصبع */
 td button {
-    font-size: 24px !important;
-    padding: 15px 25px !important;
-    margin: 5px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     font-weight: bold;
-    min-width: 90px;
 }
 
-td button:nth-of-type(1) { background: #ffc107; color: black; }
-td button:nth-of-type(2) { background: #2196F3; color: white; }
-td button:nth-of-type(3) { background: #f44336; color: white; }
+td button:nth-of-type(1) { background: #ffc107; color: black; } /* بيع */
+td button:nth-of-type(2) { background: #2196F3; color: white; } /* تعديل */
+td button:nth-of-type(3) { background: #f44336; color: white; } /* مسح */
 
-/* ==================================================== */
-/* 🧮 تصميم الآلة الحاسبة المطور والمنظم بجانب بعضه */
-/* ==================================================== --> */
-#calculator {
-    width: 95%;
-    max-width: 480px;
+/* عنوان الأرباح والخسائر */
+#salesSection {
+    width: 91%;
     margin: 30px auto;
-    padding: 20px;
-    background: #1c1c1e; /* لون الحاسبة الكلاسيكي الداكن */
+}
+
+#profitTitle {
+    color: #fff;
+    background: #32e52c;
+    padding: 15px;
+    border-radius: 7px;
+}
+
+/* 🧮 تصميم صندوق الآلة الحاسبة الرئيسي */
+#calculator {
+    width: 91%;
+    background: #1c1c1e;
     border-radius: 25px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
-    direction: ltr; /* لترتيب الأرقام الرياضية */
-    box-sizing: border-box;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
+    direction: ltr;
+    margin: 40px auto;
 }
 
 #calculator h2 {
     color: white;
-    font-size: 32px;
-    margin-bottom: 15px;
 }
 
 #calcExpression {
     width: 100%;
-    height: 80px;
     background: #2c2c2e;
     color: white;
-    font-size: 40px;
     text-align: right;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 25px;
     border: none;
+    border-radius: 12px;
 }
 
-/* تقسيم واجهة الحاسبة إلى قطاعين بجانب بعضهما */
+/* شبكة توزيع الأزرار للحاسبة */
 .calculator-layout {
     display: flex;
     gap: 15px;
 }
 
-/* بلوك الأرقام (3 أعمدة مرتبة) */
 .numbers-block {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    flex: 3; /* يأخذ مساحة أكبر */
+    flex: 3;
 }
 
-/* بلوك العمليات (عمود واحد رأسي بجانب الأرقام) */
 .operations-block {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    flex: 1; /* عمود جانبي مخصص للرموز */
+    flex: 1;
 }
 
-/* ⚡ جعل جميع أزرار الحاسبة عملاقة ومريحة جداً للمس */
+/* أزرار الآلة الحاسبة العامة */
 .calc-btn {
-    height: 85px; /* أزرار ضخمة جداً وطويلة */
-    font-size: 32px; /* خط كبير جداً وواضح */
-    font-weight: bold;
     border: none;
-    border-radius: 18px; /* تصميم زوايا ناعمة وعصرية */
+    font-weight: bold;
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.1s;
 }
 
 .calc-btn:active {
     filter: brightness(1.3);
 }
 
-/* توزيع ألوان الأزرار المخصصة للحاسبة */
-.num-btn {
-    background: #3a3a3c; /* لون الأرقام */
-}
-.op-btn {
-    background: #ff9f0a; /* لون عمود العمليات البرتقالي */
-    color: white;
-}
-.action-btn {
-    background: #7c7c80; /* لون أزرار التحكم العلوية */
-    color: white;
-}
-.delete-btn {
-    background: #545456;
-    color: #ff453a; /* لون زر المسح المفرد */
-}
-.equal-btn {
-    background: #32e52c; /* زر يساوي الأخضر المميز */
-    color: white;
-    flex-grow: 1; /* يمتد ليملأ الفراغ الرأسي بالأسفل */
-}
+.num-btn { background: #3a3a3c; }
+.op-btn { background: #ff9f0a; }
+.action-btn { background: #7c7c80; }
+.delete-btn { background: #545456; color: #ff453a; }
+.equal-btn { background: #32e52c; color: white; flex-grow: 1; }
 
 #calcResult {
     color: #32e52c;
-    font-size: 36px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-#salesSection #profitTitle {
-    font-size: 35px;
-    color: #fff;
-    padding: 15px;
-    border-radius: 7px;
-    width: 100%;
-    box-sizing: border-box;
 }
 
 
+/* ==================================================== */
+/* 💻 شاشات الكمبيوتر واللاب توب الكبيرة (أكبر من 1024px) */
+/* ==================================================== */
+@media (min-width: 1025px) {
+    body { font-size: 24px; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    
+    input { width: 25%; height: 50px; font-size: 20px; margin: 5px; }
+    #name { width: 76%; }
+    #search { width: 50%; }
+    
+    #but { width: 250px; height: 55px; font-size: 22px; }
+    
+    table, #salesTable { font-size: 20px; width: 76%; }
+    th, td { padding: 10px; }
+    td button { font-size: 16px; padding: 8px 15px; min-width: 70px; }
+    
+    #salesSection { width: 76%; }
+    #profitTitle { font-size: 28px; }
+    
+    #calculator { max-width: 400px; padding: 25px; }
+    #calculator h2 { font-size: 26px; }
+    #calcExpression { height: 65px; font-size: 30px; padding: 10px; }
+    .calc-btn { height: 65px; font-size: 24px; border-radius: 50%; } /* دائرية تماماً للكمبيوتر */
+    .equal-btn, .delete-btn { border-radius: 15px; }
+    #calcResult { font-size: 28px; margin-top: 15px; }
+}
 
 
+/* ==================================================== */
+/* 📑 شاشات التابلت والايباد المتوسطة (من 768px إلى 1024px) */
+/* ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body { font-size: 28px; }
+    h1 { font-size: 44px; }
+    h2 { font-size: 34px; }
+    
+    input { width: 40%; height: 55px; font-size: 24px; margin: 6px; }
+    #name { width: 83%; }
+    #search { width: 70%; }
+    
+    #but { width: 350px; height: 65px; font-size: 26px; }
+    
+    table, #salesTable { font-size: 22px; width: 85%; }
+    th, td { padding: 12px; }
+    td button { font-size: 18px; padding: 10px 20px; min-width: 80px; }
+    
+    #salesSection { width: 85%; }
+    #profitTitle { font-size: 32px; }
+    
+    #calculator { max-width: 440px; padding: 20px; }
+    #calculator h2 { font-size: 28px; }
+    #calcExpression { height: 75px; font-size: 35px; padding: 12px; }
+    .calc-btn { height: 75px; font-size: 28px; border-radius: 20px; }
+    #calcResult { font-size: 32px; margin-top: 15px; }
+}
 
+
+/* ==================================================== */
+/* 📱 شاشات الهواتف والموبايل الصغيرة (أقل من 768px) */
+/* ==================================================== */
+@media (max-width: 767px) {
+    body { font-size: 22px; }
+    h1 { font-size: 32px; }
+    h2 { font-size: 26px; }
+    
+    /* جعل الحقول مريحة وتأخذ مساحة الشاشة بالطول */
+    input { width: 90%; height: 60px; font-size: 24px; margin: 10px 0; }
+    #name { width: 90%; }
+    #search { width: 90%; }
+    
+    #but { width: 90%; height: 75px; font-size: 26px; margin-top: 15px; }
+    
+    /* تفعيل التمرير الأفقي للجداول لو الكلمات ضخمة حتى لا تخرب التصميم */
+    table, #salesTable { font-size: 18px; width: 95%; display: block; overflow-x: auto; white-space: nowrap; }
+    th, td { padding: 12px 10px; }
+    
+    /* أزرار عملاقة جداً ومريحة جداً للمس بالإصبع على شاشة الهاتف */
+    td button { font-size: 20px !important; padding: 14px 22px !important; margin: 4px; min-width: 85px; }
+    
+    #salesSection { width: 95%; }
+    #profitTitle { font-size: 26px; padding: 12px; }
+    
+    /* حاسبة الموبايل الاحترافية بأزرار مستديرة كبيرة */
+    #calculator { max-width: 100%; width: 95%; padding: 15px; }
+    #calculator h2 { font-size: 26px; }
+    #calcExpression { height: 75px; font-size: 36px; padding: 10px; }
+    .calc-btn { height: 80px; font-size: 30px; border-radius: 18px; } /* زوايا ناعمة ممتازة للمس */
+    #calcResult { font-size: 30px; margin-top: 15px; }
+}
 
 
 
