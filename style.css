@@ -1,13 +1,11 @@
 body{
-    background-image: linear-gradient(cyan , transparent);
+    background-image: linear-gradient(cyan , rgb(255, 255, 255));
     background-repeat: no-repeat;
     width: 100%;
     text-align: center;
     font-size: 50px;
 }
-*{
-  
-}
+
 div{
     direction: rtl;
     text-align: center;
@@ -21,13 +19,13 @@ div{
 }
 input{
     width: 30%;
-    height: 70px;
+    height: 50px;
     outline: none;
     border: none;
     margin: 4px 0;
     border-radius: 7px;
     padding: 4px;
-    font-size: 50px;
+    font-size: 30px;
 
 
 }
@@ -47,6 +45,7 @@ input:focus{
     border-radius: 15px;
     cursor: pointer;
     font-size: 30px;
+    
 }
 button:hover{
     background: rgb(229, 229, 229);
@@ -57,49 +56,20 @@ table{
     text-align: center;
     width: 91%;
     margin: 10px 0;
-    border: 10px;
+    border: 10px solid rgb(0, 0, 0);
     font-size: 30px;
+    background: rgb(0, 0, 0);
+    border-radius: 0;
+    color: white;
 
 }
-#calculator {
-    width: 90%;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 15px;
-}
-
-#calculator h2 {
-    font-size: 35px;
-}
-
-#calculator input {
-    width: 35%;
-}
-
-#calcOperation {
-    width: 25%;
-    height: 100px;
-    font-size: 50px;
-    border-radius: 7px;
-}
-
-#calcButton {
-    display: block;
-    width: 250px;
-    height: 55px;
-    margin: 20px auto;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 25px;
-}
-
-#calcResult {
+th{
+    background: rgb(50, 229, 44);
+    color: white;
     font-size: 30px;
-}
+    border: 0 solid rgb(0, 0, 0);
 
+}
 
 
 
