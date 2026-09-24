@@ -1,84 +1,217 @@
-body{
+body {
     background-image: linear-gradient(cyan , rgb(255, 255, 255));
     background-repeat: no-repeat;
     width: 100%;
     text-align: center;
-    font-size: 50px;
+    font-size: 35px;
+    margin: 0;
+    padding: 0;
 }
 
-div{
+div {
     direction: rtl;
     text-align: center;
+    padding: 10px;
 }
-#head{
-    text-align: center;
-    
-}
-#hed{
 
+#head h1 {
+    font-size: 45px;
 }
-input{
-    width: 30%;
-    height: 50px;
+
+input {
+    width: 85%;
+    height: 65px;
     outline: none;
     border: none;
-    margin: 4px 0;
-    border-radius: 7px;
-    padding: 4px;
+    margin: 8px 0;
+    border-radius: 10px;
+    padding: 6px;
     font-size: 30px;
-
-
+    box-sizing: border-box;
 }
-input:focus{
-    transform: scale(1.1);
 
-
+input:focus {
+    transform: scale(1.02);
 }
-#name{
-    width: 91% ;
 
+#name {
+    width: 85%;
 }
-#but{
-    width: 300px;
-    height: 50px;
-    border: auto;
+
+/* 📱 زر إضافة منتج عملاق للموبايل */
+#but {
+    width: 85%;
+    height: 80px;
+    border: none;
+    background-color: #007bff;
+    color: white;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 30px;
-    
+    font-size: 32px;
+    margin-top: 15px;
+    font-weight: bold;
 }
-button:hover{
-    background: rgb(229, 229, 229);
-   
 
+button:hover {
+    filter: brightness(0.9);
 }
-table{
+
+/* تنسيق الجداول لتصبح متجاوبة ومريحة */
+table, #salesTable {
     text-align: center;
-    width: 91%;
-    margin: 10px 0;
-    border: 10px solid rgb(0, 0, 0);
-    font-size: 30px;
+    width: 95%;
+    margin: 20px auto;
+    border: 5px solid rgb(0, 0, 0);
+    font-size: 24px;
     background: rgb(0, 0, 0);
-    border-radius: 0;
     color: white;
-
+    border-collapse: collapse;
 }
-th{
+
+th {
     background: rgb(50, 229, 44);
     color: white;
-    font-size: 30px;
-    border: 0 solid rgb(0, 0, 0);
-
+    font-size: 26px;
+    padding: 15px 5px;
 }
 
+#salesTable th {
+    background: #2196F3;
+}
 
+td {
+    padding: 15px 5px;
+    border: 1px solid #333;
+}
 
+/* 📱 أزرار الجداول عملاقة لسهولة الضغط بالإصبع */
+td button {
+    font-size: 24px !important;
+    padding: 15px 25px !important;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    min-width: 90px;
+}
 
+td button:nth-of-type(1) { background: #ffc107; color: black; }
+td button:nth-of-type(2) { background: #2196F3; color: white; }
+td button:nth-of-type(3) { background: #f44336; color: white; }
 
+/* ==================================================== */
+/* 🧮 تصميم الآلة الحاسبة المطور والمنظم بجانب بعضه */
+/* ==================================================== --> */
+#calculator {
+    width: 95%;
+    max-width: 480px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #1c1c1e; /* لون الحاسبة الكلاسيكي الداكن */
+    border-radius: 25px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.4);
+    direction: ltr; /* لترتيب الأرقام الرياضية */
+    box-sizing: border-box;
+}
 
+#calculator h2 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
 
+#calcExpression {
+    width: 100%;
+    height: 80px;
+    background: #2c2c2e;
+    color: white;
+    font-size: 40px;
+    text-align: right;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: none;
+}
 
+/* تقسيم واجهة الحاسبة إلى قطاعين بجانب بعضهما */
+.calculator-layout {
+    display: flex;
+    gap: 15px;
+}
 
+/* بلوك الأرقام (3 أعمدة مرتبة) */
+.numbers-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    flex: 3; /* يأخذ مساحة أكبر */
+}
+
+/* بلوك العمليات (عمود واحد رأسي بجانب الأرقام) */
+.operations-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1; /* عمود جانبي مخصص للرموز */
+}
+
+/* ⚡ جعل جميع أزرار الحاسبة عملاقة ومريحة جداً للمس */
+.calc-btn {
+    height: 85px; /* أزرار ضخمة جداً وطويلة */
+    font-size: 32px; /* خط كبير جداً وواضح */
+    font-weight: bold;
+    border: none;
+    border-radius: 18px; /* تصميم زوايا ناعمة وعصرية */
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.1s;
+}
+
+.calc-btn:active {
+    filter: brightness(1.3);
+}
+
+/* توزيع ألوان الأزرار المخصصة للحاسبة */
+.num-btn {
+    background: #3a3a3c; /* لون الأرقام */
+}
+.op-btn {
+    background: #ff9f0a; /* لون عمود العمليات البرتقالي */
+    color: white;
+}
+.action-btn {
+    background: #7c7c80; /* لون أزرار التحكم العلوية */
+    color: white;
+}
+.delete-btn {
+    background: #545456;
+    color: #ff453a; /* لون زر المسح المفرد */
+}
+.equal-btn {
+    background: #32e52c; /* زر يساوي الأخضر المميز */
+    color: white;
+    flex-grow: 1; /* يمتد ليملأ الفراغ الرأسي بالأسفل */
+}
+
+#calcResult {
+    color: #32e52c;
+    font-size: 36px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#salesSection #profitTitle {
+    font-size: 35px;
+    color: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    width: 100%;
+    box-sizing: border-box;
+}
 
 
 
