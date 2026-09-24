@@ -2,9 +2,9 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>برنامج اداره المحل</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
  
@@ -50,9 +50,71 @@
      <tbody id="tbody">
      </tbody>
     </table>
+
+    <!-- القسم الخاص بجدول الفواتير وعنوان الأرباح والخسائر -->
+    <div id="salesSection" style="direction: rtl; width: 91%; margin: 30px auto; text-align: center;">
+        <h2 id="profitTitle" style="font-size: 35px; color: #fff; background: #32e52c; padding: 15px; border-radius: 7px; margin-bottom: 10px;">إجمالي الأرباح: 0 جنيه</h2>
+        <table id="salesTable" style="text-align: center; width: 100%; margin: 10px 0; border: 10px solid rgb(0, 0, 0); font-size: 30px; background: rgb(0, 0, 0); color: white;">
+            <thead>
+                <tr style="background: #2196F3; color: white;">
+                    <th>اسم المنتج</th>
+                    <th>سعر البيع الكلي</th>
+                    <th>التاريخ والوقت</th>
+                    <th>إجراء</th>
+                </tr>
+            </thead>
+            <tbody id="salesTbody"></tbody>
+        </table>
+    </div>
+
     <br><br>
-    <br><br>
-    <br><br>
+    
+    <!-- ==================================================== -->
+    <!-- الآلة الحاسبة بتوزيعة الأزرار التقليدية والأحجام العملاقة -->
+    <!-- ==================================================== -->
+    <div id="calculator">
+        <h2>🧮 الآلة الحاسبة الذكية</h2>
+        <input type="text" id="calcExpression" placeholder="0" readonly>
+        
+        <div class="calculator-layout">
+            <!-- بلوك الأرقام وبعض العمليات (على اليسار) -->
+            <div class="numbers-block">
+                <button class="calc-btn action-btn" onclick="pressCalc('C')">C</button>
+                <button class="calc-btn action-btn" onclick="pressCalc('(')">(</button>
+                <button class="calc-btn action-btn" onclick="pressCalc(')')">)</button>
+                
+                <button class="calc-btn num-btn" onclick="pressCalc('7')">7</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('8')">8</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('9')">9</button>
+                
+                <button class="calc-btn num-btn" onclick="pressCalc('4')">4</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('5')">5</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('6')">6</button>
+                
+                <button class="calc-btn num-btn" onclick="pressCalc('1')">1</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('2')">2</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('3')">3</button>
+                
+                <button class="calc-btn num-btn" onclick="pressCalc('0')">0</button>
+                <button class="calc-btn num-btn" onclick="pressCalc('.')">.</button>
+                <button class="calc-btn delete-btn" onclick="pressCalc('back')">⌫</button>
+            </div>
+            
+            <!-- بلوك علامات العمليات الحسابية (عمود منفصل على اليمين) -->
+            <div class="operations-block">
+                <button class="calc-btn op-btn" onclick="pressCalc('÷')">÷</button>
+                <button class="calc-btn op-btn" onclick="pressCalc('×')">×</button>
+                <button class="calc-btn op-btn" onclick="pressCalc('-')">−</button>
+                <button class="calc-btn op-btn" onclick="pressCalc('+')">+</button>
+                <button class="calc-btn equal-btn" id="calcButton">=</button>
+            </div>
+        </div>
+        
+        <h3 id="calcResult">النتيجة: 0</h3>
+    </div>
+    <!-- ==================================================== -->
+
+    <br><br><br><br>
     <script src="main.js" defer></script>
 </body>
 </html>
