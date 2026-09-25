@@ -1,120 +1,141 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برنامج اداره المحل</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
- 
-    <div>
-         <div id="head"><h1>برنامج اداره المحل</h1></div>
-         <h2 id="hed">اضافه منتج</h2>
-         <div id="idk"><form><input type="text" id="name"
-         placeholder="اسم المنتج">
-         <br><br>
-          <input type="number" id="buy"
-         placeholder="سعر الشراء">
-          
-         <input type="number" id="sell"
-         placeholder="سعر البيع">
-         
-         <input type="number" id="amount"
-        placeholder="الكميه"></div>
-        <br><br>
-        <button id="but">اضافه منتج</button>
-        </form>
-
-    </div>
-    <div>
-        <h2>البحث عن المنتج</h2>
-         <input type="text" id="search"
-         placeholder="اكتب اسم المنتج">
-        <h3>
-   
-            
-</h3>
-    </div>
-   <table id="table">
-     <tr>
-        <th>الاسم</th>
-        <th>السعر</th>
-        <th>سعر البيع</th>
-        <th>الكميه</th>
-        <th>بيع</th>
-        <th>تعديل</th>
-        <th>مسح</th>
-     </tr>
-
-     <tbody id="tbody">
-     </tbody>
-    </table>
-
-    <!-- القسم الخاص بجدول الفواتير وعنوان الأرباح والخسائر -->
-    <div id="salesSection" style="direction: rtl; width: 91%; margin: 30px auto; text-align: center;">
-        <h2 id="profitTitle" style="font-size: 35px; color: #fff; background: #32e52c; padding: 15px; border-radius: 7px; margin-bottom: 10px;">إجمالي الأرباح: 0 جنيه</h2>
-        <table id="salesTable" style="text-align: center; width: 100%; margin: 10px 0; border: 10px solid rgb(0, 0, 0); font-size: 30px; background: rgb(0, 0, 0); color: white;">
-            <thead>
-                <tr style="background: #2196F3; color: white;">
-                    <th>اسم المنتج</th>
-                    <th>سعر البيع الكلي</th>
-                    <th>التاريخ والوقت</th>
-                    <th>إجراء</th>
-                </tr>
-            </thead>
-            <tbody id="salesTbody"></tbody>
-        </table>
-    </div>
-
-    <br><br>
-    
-    <!-- ==================================================== -->
-    <!-- الآلة الحاسبة بتوزيعة الأزرار التقليدية والأحجام العملاقة -->
-    <!-- ==================================================== -->
-    <div id="calculator">
-        <h2>🧮 الآلة الحاسبة الذكية</h2>
-        <input type="text" id="calcExpression" placeholder="0" readonly>
-        
-        <div class="calculator-layout">
-            <!-- بلوك الأرقام وبعض العمليات (على اليسار) -->
-            <div class="numbers-block">
-                <button class="calc-btn action-btn" onclick="pressCalc('C')">C</button>
-                <button class="calc-btn action-btn" onclick="pressCalc('(')">(</button>
-                <button class="calc-btn action-btn" onclick="pressCalc(')')">)</button>
-                
-                <button class="calc-btn num-btn" onclick="pressCalc('7')">7</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('8')">8</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('9')">9</button>
-                
-                <button class="calc-btn num-btn" onclick="pressCalc('4')">4</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('5')">5</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('6')">6</button>
-                
-                <button class="calc-btn num-btn" onclick="pressCalc('1')">1</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('2')">2</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('3')">3</button>
-                
-                <button class="calc-btn num-btn" onclick="pressCalc('0')">0</button>
-                <button class="calc-btn num-btn" onclick="pressCalc('.')">.</button>
-                <button class="calc-btn delete-btn" onclick="pressCalc('back')">⌫</button>
-            </div>
-            
-            <!-- بلوك علامات العمليات الحسابية (عمود منفصل على اليمين) -->
-            <div class="operations-block">
-                <button class="calc-btn op-btn" onclick="pressCalc('÷')">÷</button>
-                <button class="calc-btn op-btn" onclick="pressCalc('×')">×</button>
-                <button class="calc-btn op-btn" onclick="pressCalc('-')">−</button>
-                <button class="calc-btn op-btn" onclick="pressCalc('+')">+</button>
-                <button class="calc-btn equal-btn" id="calcButton">=</button>
-            </div>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مخزن المنتجات</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">لوحة المخزن</p>
+          <h1>نظام إدارة المخزون</h1>
         </div>
-        
-        <h3 id="calcResult">النتيجة: 0</h3>
-    </div>
-    <!-- ==================================================== -->
+        <div class="summary-box">
+          <span id="totalProfitLabel">0 ر.س</span>
+          <small>إجمالي الربح/الخسارة</small>
+        </div>
+      </header>
 
-    <br><br><br><br>
-    <script src="main.js" defer></script>
-</body>
+      <section class="stats-grid">
+        <div class="stat-card">
+          <span id="productsCount">0</span>
+          <small>منتجات</small>
+        </div>
+        <div class="stat-card">
+          <span id="stockCount">0</span>
+          <small>إجمالي الكمية</small>
+        </div>
+        <div class="stat-card">
+          <span id="saleSummary">0 ر.س</span>
+          <small>إجمالي مبيعات</small>
+        </div>
+      </section>
+
+      <nav class="page-tabs">
+        <button type="button" class="nav-btn active" data-page="inventory">المنتجات</button>
+        <button type="button" class="nav-btn" data-page="sales">سجل المبيعات</button>
+        <button type="button" class="nav-btn" data-page="calculator">الحاسبة</button>
+      </nav>
+
+      <section id="inventoryPage" class="page active">
+        <div class="layout">
+          <section class="panel form-panel">
+            <h2 id="formTitle">إضافة منتج جديد</h2>
+
+            <form id="productForm">
+              <div class="field">
+                <label for="productName">اسم المنتج</label>
+                <input id="productName" name="name" type="text" placeholder="مثال: زيت نباتي" maxlength="80" required />
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="purchasePrice">سعر الشراء</label>
+                  <input id="purchasePrice" name="purchasePrice" type="number" min="0" step="0.01" placeholder="0.00" required />
+                </div>
+
+                <div class="field">
+                  <label for="sellingPrice">سعر البيع</label>
+                  <input id="sellingPrice" name="sellingPrice" type="number" min="0" step="0.01" placeholder="0.00" required />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="productQty">الكمية</label>
+                <input id="productQty" name="quantity" type="number" min="0" step="1" placeholder="0" required />
+              </div>
+
+              <div class="actions">
+                <button type="submit" id="submitBtn" class="primary-btn">حفظ المنتج</button>
+                <button type="button" id="cancelEditBtn" class="secondary-btn hidden">إلغاء</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel list-panel">
+            <div class="list-header">
+              <h2>قائمة المنتجات</h2>
+              <input id="searchInput" type="search" placeholder="بحث عن منتج..." aria-label="بحث" />
+            </div>
+
+            <div id="emptyState" class="empty-state hidden">
+              لا توجد منتجات في المخزن حالياً.
+            </div>
+
+            <div id="productList" class="product-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </section>
+
+      <section id="salesPage" class="page">
+        <section class="panel sales-panel">
+          <div class="list-header">
+            <h2>سجل المبيعات</h2>
+          </div>
+          <div id="salesList" class="sales-list"></div>
+        </section>
+      </section>
+
+      <section id="calculatorPage" class="page">
+        <section class="calculator-section">
+          <div class="calculator">
+            <div class="calculator-screen">
+              <span id="calcDisplay">0</span>
+            </div>
+
+            <div class="calculator-grid">
+              <button type="button" class="calc-btn op" data-value="C">C</button>
+              <button type="button" class="calc-btn op" data-value="DEL">DEL</button>
+              <button type="button" class="calc-btn op" data-value="%">%</button>
+              <button type="button" class="calc-btn op" data-value="/">÷</button>
+
+              <button type="button" class="calc-btn" data-value="7">7</button>
+              <button type="button" class="calc-btn" data-value="8">8</button>
+              <button type="button" class="calc-btn" data-value="9">9</button>
+              <button type="button" class="calc-btn op" data-value="*">×</button>
+
+              <button type="button" class="calc-btn" data-value="4">4</button>
+              <button type="button" class="calc-btn" data-value="5">5</button>
+              <button type="button" class="calc-btn" data-value="6">6</button>
+              <button type="button" class="calc-btn op" data-value="-">−</button>
+
+              <button type="button" class="calc-btn" data-value="1">1</button>
+              <button type="button" class="calc-btn" data-value="2">2</button>
+              <button type="button" class="calc-btn" data-value="3">3</button>
+              <button type="button" class="calc-btn op" data-value="+">+</button>
+
+              <button type="button" class="calc-btn wide" data-value="0">0</button>
+              <button type="button" class="calc-btn" data-value=".">.</button>
+              <button type="button" class="calc-btn equal" data-value="=">=</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
 </html>
