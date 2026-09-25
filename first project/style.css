@@ -1,283 +1,521 @@
-/* ==================================================== */
-/* 🌐 التنسيقات الأساسية العامة (لكل الأجهزة) */
-/* ==================================================== */
+:root {
+  --bg-dark: #081120;
+  --bg-soft: #101b2d;
+  --panel: rgba(15, 23, 42, 0.8);
+  --panel-border: rgba(148, 163, 184, 0.18);
+  --accent: #7c3aed;
+  --accent-strong: #a855f7;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --input: rgba(15, 23, 42, 0.7);
+  --shadow: 0 18px 40px rgba(2, 6, 23, 0.45);
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background-image: linear-gradient(cyan, rgb(255, 255, 255));
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    text-align: center;
-    font-family: sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #111827 35%, #1f2937 100%);
+  color: var(--text);
 }
 
-div {
-    direction: rtl;
-    text-align: center;
-    padding: 10px;
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 18px 48px;
+}
+
+.page-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 24px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  background: rgba(15, 23, 42, 0.7);
+  color: var(--text);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  min-width: 130px;
+  padding: 12px 18px;
+  border-radius: 14px;
+}
+
+.nav-btn.active {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  border-color: transparent;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p,
+small {
+  margin: 0;
 }
 
 h1 {
-    margin-top: 20px;
-    color: #333;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
 }
 
-h2 {
-    margin: 15px 0;
-    color: #444;
+.summary-box {
+  min-width: 170px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: rgba(124, 58, 237, 0.14);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  text-align: center;
+}
+
+.summary-box span,
+.stat-card span {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.summary-box small,
+.stat-card small {
+  color: var(--muted);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  padding: 18px 16px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.panel {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--panel-border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.form-panel,
+.list-panel {
+  padding: 24px;
+}
+
+.form-panel h2,
+.list-header h2 {
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+}
+
+#productForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 input {
-    outline: none;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    padding: 8px;
-    transition: transform 0.2s;
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: var(--input);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 input:focus {
-    transform: scale(1.02);
-    border-color: #007bff;
+  border-color: rgba(168, 85, 247, 0.9);
+  transform: translateY(-1px);
 }
 
-#but {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s;
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 2px;
 }
 
-#but:hover {
-    background-color: #0056b3;
+button {
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-table, #salesTable {
-    text-align: center;
-    width: 91%;
-    margin: 20px auto;
-    border: 5px solid rgb(0, 0, 0);
-    background: rgb(0, 0, 0);
-    color: white;
-    border-collapse: collapse;
+button:hover {
+  transform: translateY(-1px);
 }
 
-th {
-    background: rgb(50, 229, 44);
-    color: white;
-    padding: 12px;
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: white;
 }
 
-#salesTable th {
-    background: #2196F3;
+.secondary-btn {
+  background: rgba(148, 163, 184, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  color: var(--text);
 }
 
-td {
-    padding: 12px;
-    border: 1px solid #444;
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
-td button {
-    cursor: pointer;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
+#searchInput {
+  max-width: 220px;
 }
 
-td button:nth-of-type(1) { background: #ffc107; color: black; }
-td button:nth-of-type(2) { background: #2196F3; color: white; }
-td button:nth-of-type(3) { background: #f44336; color: white; }
-
-#salesSection {
-    width: 91%;
-    margin: 30px auto;
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-#profitTitle {
-    color: #fff;
-    background: #32e52c;
-    padding: 15px;
-    border-radius: 7px;
+.product-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.18);
 }
 
-/* 🧮 صندوق الآلة الحاسبة الرئيسي */
-#calculator {
-    width: 91%;
-    background: #1c1c1e;
-    border-radius: 25px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
-    direction: ltr;
-    margin: 40px auto;
-    padding: 20px;
+.product-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-#calculator h2 {
-    color: white;
+.product-name {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
-#calcExpression {
-    width: 100%;
-    background: #2c2c2e;
-    color: white;
-    text-align: right;
-    border: none;
-    border-radius: 12px;
+.qty-pill {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
-/* شبكة توزيع الأزرار للحاسبة */
-.calculator-layout {
-    display: grid;
-    grid-template-columns: 3fr 1fr; /* تقسيم ثابت الأرقام 3 أعمدة والعمليات عمود */
-    gap: 12px;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-.numbers-block {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+.info-box {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(148, 163, 184, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.operations-block {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.info-box span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  margin-bottom: 6px;
+}
+
+.info-box strong {
+  font-size: 1rem;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.product-buttons button,
+.sell-form button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+}
+
+.edit-btn {
+  background: rgba(59, 130, 246, 0.14);
+  color: #93c5fd;
+}
+
+.delete-btn {
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+}
+
+.sell-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sell-form input {
+  width: 90px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.sell-btn {
+  background: rgba(34, 197, 94, 0.12);
+  color: #86efac;
+}
+
+.empty-state {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--muted);
+  border: 1px dashed rgba(148, 163, 184, 0.25);
+  border-radius: 14px;
+}
+
+.sales-panel {
+  margin-top: 28px;
+  padding: 24px;
+}
+
+.sales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sale-item {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.sale-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sale-item p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+.sale-time {
+  margin-top: 10px;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+}
+
+.delete-sale-btn {
+  margin-top: 12px;
+  width: 100%;
+  background: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.calculator-section {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 10px;
+}
+
+.calculator {
+  width: min(100%, 340px);
+  background: linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  border-radius: 34px;
+  box-shadow: 0 18px 35px rgba(2, 6, 23, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 18px 14px 16px;
+}
+
+.calculator-screen {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.95));
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: white;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .calc-btn {
-    border: none;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 62px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.95);
+  color: white;
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
-.calc-btn:active {
-    filter: brightness(1.3);
+.calc-btn.op {
+  background: rgba(124, 58, 237, 0.22);
+  color: #ddd6fe;
 }
 
-.num-btn { background: #3a3a3c; }
-.op-btn { background: #ff9f0a; }
-.action-btn { background: #7c7c80; }
-.delete-btn { background: #545456; color: #ff453a; }
-.equal-btn { background: #32e52c; color: white; flex-grow: 1; }
-
-#calcResult {
-    color: #32e52c;
+.calc-btn.equal {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
 }
 
-/* ==================================================== */
-/* 💻 شاشات الكمبيوتر واللاب توب الكبيرة (أكبر من 1024px) */
-/* ==================================================== */
-@media (min-width: 1025px) {
-    body { font-size: 24px; }
-    h1 { font-size: 40px; }
-    h2 { font-size: 30px; }
-    
-    input { width: 25%; height: 50px; font-size: 20px; margin: 5px; }
-    #name { width: 76%; }
-    #search { width: 50%; }
-    
-    #but { width: 250px; height: 55px; font-size: 22px; }
-    
-    table, #salesTable { font-size: 20px; width: 76%; }
-    th, td { padding: 10px; }
-    td button { font-size: 16px; padding: 8px 15px; min-width: 70px; }
-    
-    #salesSection { width: 76%; }
-    #profitTitle { font-size: 28px; }
-    
-    #calculator { max-width: 400px; }
-    #calculator h2 { font-size: 26px; }
-    #calcExpression { height: 65px; font-size: 30px; padding: 10px; }
-    .calc-btn { height: 65px; font-size: 24px; border-radius: 50%; }
-    .equal-btn, .delete-btn { border-radius: 15px; }
-    #calcResult { font-size: 28px; margin-top: 15px; }
+.calc-btn.wide {
+  grid-column: span 2;
 }
 
-/* ==================================================== */
-/* 📑 شاشات التابلت والايباد المتوسطة (من 768px إلى 1024px) */
-/* ==================================================== */
-@media (min-width: 768px) and (max-width: 1024px) {
-    body { font-size: 26px; }
-    h1 { font-size: 38px; }
-    h2 { font-size: 30px; }
-    
-    input { width: 40%; height: 55px; font-size: 22px; margin: 6px; }
-    #name { width: 83%; }
-    #search { width: 70%; }
-    
-    #but { width: 350px; height: 65px; font-size: 24px; }
-    
-    table, #salesTable { font-size: 20px; width: 85%; }
-    th, td { padding: 12px; }
-    td button { font-size: 18px; padding: 10px 18px; min-width: 80px; }
-    
-    #salesSection { width: 85%; }
-    #profitTitle { font-size: 30px; }
-    
-    #calculator { max-width: 440px; }
-    #calculator h2 { font-size: 28px; }
-    #calcExpression { height: 75px; font-size: 35px; padding: 12px; }
-    .calc-btn { height: 75px; font-size: 28px; border-radius: 20px; }
-    #calcResult { font-size: 32px; margin-top: 15px; }
+.profit-positive {
+  color: #86efac;
 }
 
-/* ==================================================== */
-/* 📱 شاشات الهواتف والموبايل الصغيرة (أقل من 768px) */
-/* ==================================================== */
-@media (max-width: 767px) {
-    body { font-size: 18px; } /* تصغير الكلام العام في التليفون */
-    h1 { font-size: 26px; }
-    h2 { font-size: 22px; }
-    
-    input { width: 90%; height: 50px; font-size: 18px; margin: 8px 0; }
-    #name { width: 90%; }
-    #search { width: 90%; }
-    
-    #but { width: 90%; height: 60px; font-size: 20px; margin-top: 10px; }
-    
-    /* منع الجداول من تخريب وضغط عناصر الشاشة */
-    table, #salesTable { 
-        font-size: 15px; 
-        width: 95%; 
-        display: block; 
-        overflow-x: auto; 
-        white-space: nowrap; 
-        margin: 15px auto;
-    }
-    th, td { padding: 10px 8px; }
-    td button { font-size: 16px !important; padding: 10px 15px !important; margin: 2px; min-width: 70px; }
-    
-    #salesSection { width: 95%; }
-    #profitTitle { font-size: 22px; padding: 12px; }
-    
-    /* 🧮 ضبط انضباط الآلة الحاسبة تماماً على الموبايل */
-    #calculator { 
-        max-width: 340px; /* حجم محكم لكي لا تخرج الأزرار عن السيطرة */
-        width: 95%; 
-        padding: 12px; 
-    }
-    #calculator h2 { font-size: 22px; }
-    #calcExpression { height: 60px; font-size: 28px; padding: 8px; margin-bottom: 15px; }
-    
-    .calculator-layout { gap: 8px; }
-    .numbers-block { gap: 8px; }
-    .operations-block { gap: 8px; }
-    
-    /* أزرار متناسقة ولا تفسد المظهر وبحجم ممتاز للمس */
-    .calc-btn { 
-        height: 60px; 
-        font-size: 22px; 
-        border-radius: 12px; 
-    } 
-    #calcResult { font-size: 24px; margin-top: 12px; }
+.profit-negative {
+  color: #fca5a5;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .list-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #searchInput {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .stats-grid,
+  .field-row,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions,
+  .product-actions,
+  .sell-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .product-buttons {
+    width: 100%;
+  }
+
+  .product-buttons button,
+  .sell-form button {
+    flex: 1;
+  }
 }
